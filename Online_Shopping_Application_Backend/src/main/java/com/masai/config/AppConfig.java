@@ -65,7 +65,8 @@ public class AppConfig {
 											"/products/search", "/products/sorted", "/products/filter",
 											"/products/category", "/products/brand")
 									.permitAll()
-									.requestMatchers(HttpMethod.POST, "/admins", "/products").hasRole("ADMIN")
+									.requestMatchers(HttpMethod.POST, "/admins").permitAll()
+									.requestMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
 
 									.requestMatchers(HttpMethod.POST, "/carts/**", "/orders/**").hasRole("USER")
 
